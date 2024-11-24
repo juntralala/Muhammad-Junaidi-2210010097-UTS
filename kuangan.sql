@@ -1,0 +1,15 @@
+CREATE TABLE pengeluaran (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    tipe VARCHAR(100) NOT NULL,
+    jumlah DECIMAL(12, 2) NOT NULL,
+    deskripsi TEXT NOT NULL,
+    tanggal DATETIME NOT NULL
+);
+
+CREATE TABLE anggaran (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    jumlah_batasan DECIMAL(12, 2) NOT NULL,
+    bulan INTEGER NOT NULL CHECK (bulan BETWEEN 1 AND 12),
+    tahun INTEGER NOT NULL,
+    UNIQUE (bulan, tahun)
+);
